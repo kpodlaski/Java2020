@@ -24,8 +24,7 @@ public class Paint {
         greenBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DrawingPanel dp = (DrawingPanel) drawingPanel;
-                dp.setColor("GREEN");
+                ((DrawingPanel) drawingPanel).setColor("GREEN");
             }
         });
     }
