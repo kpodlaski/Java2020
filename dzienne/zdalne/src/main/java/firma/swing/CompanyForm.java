@@ -29,8 +29,9 @@ public class CompanyForm {
         departmentList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                int index = e.getFirstIndex();
+                int index = departmentList.getSelectedIndex();
                 System.out.println("D "+index);
+                if (index <0 ) return;
                 activeDepartment = company.getDepartments().get(index);
                 fillDepatrmentPane();
                 tabbedPane.setSelectedIndex(1);
@@ -39,7 +40,9 @@ public class CompanyForm {
         personList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                int index = e.getLastIndex();
+                int index = personList.getSelectedIndex();
+                //Can change when departmentList changes, then selected index = -1
+                if (index < 0 ) return;
                 System.out.println("P "+index);
                 activePerson = activeDepartment.getPersons().get(index);
                 fillPersonPane();
